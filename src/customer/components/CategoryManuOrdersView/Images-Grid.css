@@ -1,0 +1,86 @@
+.main-container {
+  width: 100%;
+  margin: 4em auto 0em auto;
+  /* margin: 4em 0 0 0 ; */
+  border-radius: 3px;
+}
+
+.second-container {
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0px;
+}
+
+.manu-title {
+  padding: 1em;
+  min-height: 6em;
+  margin-top: 5em;
+}
+
+.grid-container > div {
+  height: 180px;
+  background-color: #fff;
+  background-size: cover;
+  /* background-attachment: fixed;  */
+  border: 1px solid #edeff0;
+  cursor: pointer;
+  /* background: url('https://p0.pikist.com/photos/866/921/sandwich-basil-pass-review-salad-brunch-chi-avatar-bread-food.jpg'); */
+}
+
+.location-image > h2 {
+  color: #ffffff;
+  text-align: center;
+  margin-top: 6.2em;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+
+.bg1 {
+  background: url("https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+}
+.bg2 {
+  background: url("https://asset.slimmingworld.co.uk/content/media/11560/chicken-vegetable-soup-iceland_sw_recipe.jpg?v1=JGXiore20qg9NNIj0tmc3TKfKw-jr0s127JqqpCA2x7sMviNgcAYh1epuS_Lqxebn9V_qusKHfwbF7MOUrAPptzBhXIUL1Xnq2Mmdvx4fOk&width=640&height=640");
+}
+.bg3 {
+  background: url("https://d1af89beukha9h.cloudfront.net/wp-content/uploads/2018/10/soft-drink-companies.jpg");
+}
+.bg4 {
+  background: url("https://images.squarespace-cdn.com/content/v1/5b1717b5a9e028b430240f15/1545270392722-RKIPUBCGHK6060L2FVVA/ke17ZwdGBToddI8pDm48kA47qaxzGU3oa60Mv3IrElh7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0jBK0T3M-v-AVkQFEHxhNgUudw45kiY-UQ73op4W9iSPFDhmgzum_ZisgY9UJzHOlA/beer+samples.png?format=2500w");
+}
+.bg5 {
+  background: url("https://kewpizza.com.au/wp-content/uploads/2018/12/owner-bg.png");
+}
+.bg6 {
+  background: url("https://cdn.dribbble.com/users/5429909/screenshots/11829202/shot-cropped-1591090545582.png");
+}
+.bg7 {
+  background: url("https://www.bollywoodmasalaz.com/wp-content/uploads/2019/09/South-Indian-food-in-Indian-Cuisine.png");
+}
+.bg8 {
+  background: url("https://nrai.org/wp-content/uploads/2016/07/thali-1030x778-660x330.jpg");
+}
+.bg9 {
+  background: url("https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=2000&h=1047&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F23%2F2020%2F06%2F23%2Fitalian-food-2000.jpg");
+}
+.bg10 {
+  background: url("https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F4_3_horizontal_-_1200x900%2Fpublic%2Fimage%2F2017%2F07%2Fmain%2Fveggie-tofu-stir-fry-ck.jpg%3Fitok%3DV88FQY4y");
+}
+
+@media only screen and (min-width: 600px) {
+  .second-container {
+    width: 28em;
+    /* margin: 4em auto 2.5em auto; */
+    margin: 0em auto 2.5em auto;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .main-container {
+    margin-top: 0em;
+    margin-left: 5em;
+  }
+}

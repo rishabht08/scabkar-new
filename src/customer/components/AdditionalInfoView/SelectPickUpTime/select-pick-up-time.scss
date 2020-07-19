@@ -1,0 +1,67 @@
+@media only screen and (min-width: 600px) {
+    .select-pick-up-container {
+        width: 28em;
+        margin: 0 auto 1em auto;
+    }
+}
+
+@media only screen and (max-width: 599px) {
+    .select-pick-up-container {
+        width: 90%;
+        margin: 0 auto 1em auto;
+    }
+}
+
+.select-pick-up-container {
+    padding: 0.75em;
+    border: 1px solid #E4E4E4;
+    border-radius: 8px;
+    background: #fff;
+
+    border-style: none;
+    box-shadow: 0 0 20px 0 rgba(50,56,66,.1);
+
+    h2 {
+        margin: 0 0.25em 0.25em 0em;
+        padding-bottom: 0.75em;
+        font-size: 1.2em;
+        color: #071a52;
+    }
+}
+
+.select-pick-up-now  {
+    margin-right: 4em;
+    display: inline-block;
+
+    label {
+        color: #071a52;
+    }
+}
+
+.select-pick-up-time  {
+
+    label {
+        color: #071a52;
+    }
+
+    display: inline-block;
+
+    select {
+        display: inline-block;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding: 0.3em 0.5em;
+        border-radius: 3px;
+        background: url('/img/down-arrow.png') no-repeat #F8F8F8;
+        background-position: 85% 55%;
+        width: 6.5em;
+        margin-left: 0.5em;
+        border-radius: 8px;
+        border: 1px solid #071a52;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+.additional-info-container {
+    margin-left: 0em;
+    margin-top: 4em;
+}
+
+.title-cover {
+    h1 {
+        color: #071a52;
+    }
+}
+
+.next-button-container {
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+.userProgress {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+#threeOfFive {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    background: #071a52;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.additional-info-container {
+
+    overflow-x: hidden;
+}
+
+.s-align{
+    margin: 1em 5em 0 0;
+}
+
+@media only screen and (min-width: 600px) {
+    .additional-info-container {
+        .userProgress {
+            width: 20em;
+        }
+    }
+    .s-align {
+        margin: 1em 0em 0 0;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .additional-info-container {
+        margin-left: 0em;
+        margin-top: 4em;
+    }
+    .s-align {
+        margin: 1em 0em 0 0;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    .additional-info-container {
+        margin-top: 0em;
+        margin-left: 5em;
+    }
+    .s-align {
+        margin: 1em 0em 0 0;
+    }
+}
