@@ -66,7 +66,7 @@ export class CategoryManuOrdersView extends Component {
               <h2
                 
               >
-                ITALIAN FOOD
+                ITALIAN
               </h2>
             </div>
             <div className="location-image bg10" onClick={(e)=> this.selectCategory(e)}>

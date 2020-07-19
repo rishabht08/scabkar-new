@@ -72,7 +72,7 @@ class CustomOrderView extends React.Component {
         previousOrders: [],
         favoriteOrders: [],
         menuShow: false,
-        menuData: []
+        menuData: null
     }
 
 
@@ -82,8 +82,13 @@ class CustomOrderView extends React.Component {
         console.log("menuData", data)
         axios.get("https://scankar.herokuapp.com/api/v1/products").then(res => {
             console.log("responsed", res.data.data.products)
+
+            let arr = res.data.data.products.filter(item=>{
+                return item.category == cookie.get("category") && item.status == "Available"
+            })
+        
             this.setState({
-                menuData: res.data.data.products
+                menuData: arr
             })
         })
         let userName = cookie.get("username") ? cookie.get("username") : "Guest";
@@ -222,10 +227,11 @@ class CustomOrderView extends React.Component {
                 <div className="custom-order-view-wrap">
                     <AddItemNotification
                         notification={this.state.notification} />
-                    {this.state.menuData.length == 0 ?
+                    {!this.state.menuData ?
                         <div className="spinner-border text-danger" role="status">
                         <span className="sr-only">Loading...</span>
                       </div>:
+                      this.state.menuData.length!=0 ?
                         <div className="menu-form-container">
                             <MenuFormContainer
                                 data={this.state.menuData}
@@ -234,7 +240,7 @@ class CustomOrderView extends React.Component {
                                 toggleAddNotification={this.toggleAddNotification}
                                 toggleErrorNotification={this.toggleErrorNotification} />
 
-                        </div>
+                        </div> : <div style={{"margin-left":"20%"}}>No Items Available Under this Category</div>
                      
                     }
 
