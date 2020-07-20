@@ -14,11 +14,11 @@ class UsernameView extends React.Component {
   };
 
   componentWillMount = () => {
-    setTimeout(() => {
-      this.setState({
-        isLoading: false,
-      });
-    }, 4000);
+    // setTimeout(() => {
+    //   this.setState({
+    //     isLoading: false,
+    //   });
+    // }, 4000);
   };
 
   _handleUsernameSubmit = (event) => {

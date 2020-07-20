@@ -39,7 +39,7 @@ var OrderTotal = React.createClass({
         return (
             <div>
                 <section id="order-total">
-                    <h2>Order Total</h2>
+                    <h2>Total Order</h2>
                     <table className="order-total-table">
                         <tbody>
                             {orderItems}

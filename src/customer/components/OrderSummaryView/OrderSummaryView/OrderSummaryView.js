@@ -114,7 +114,8 @@ class OrderSummaryView extends React.Component{
             "userName": cookie.get("username"),
             "orders" : arr,
             "noOfSeatsRequested": parseInt(cookie.get("seatNumber")),
-            "orderType": cookie.get("type")
+            "orderType": cookie.get("type"),
+            "specialInstructions" : cookie.get("specialInstructions")
 
         }
 
