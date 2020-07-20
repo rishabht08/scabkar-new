@@ -1,74 +1,88 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React from "react";
+import { Link } from "react-router";
 // import Footer from '../../DashboardView/Footer/Footer';
-import './username-view.scss';
-import '../../App/app.scss';
+import "./username-view.scss";
+import "../../App/app.scss";
+import "../user-name.css";
 
 class UsernameView extends React.Component {
+  // propTypes: {
+  //     handleUsername: React.PropTypes.func
+  // },
+  state = {
+    isLoading: true,
+  };
 
-    // propTypes: {
-    //     handleUsername: React.PropTypes.func
-    // },
-    state = {
-        isLoading: true
-    }
+  componentWillMount = () => {
+    setTimeout(() => {
+      this.setState({
+        isLoading: false,
+      });
+    }, 4000);
+  };
 
-    componentWillMount = () => {
-        setTimeout(() => {
-            this.setState({
-                isLoading: false
-            })
-        }, 4000);
+  _handleUsernameSubmit = (event) => {
+    event.preventDefault();
+    var username = this._usernameInput.value;
+    this.props.handleUsername(username);
+  };
 
-    }
-
-    _handleUsernameSubmit = (event) => {
-        event.preventDefault();
-        var username = this._usernameInput.value;
-        this.props.handleUsername(username);
-    }
-
-
-    render = function () {
-        return (
-            <div className="username-container">
-                {this.state.isLoading &&
-                    <div id="banner">
-                        <div style={{"margin-top":"15%"}}>Covid Situation</div>
-                    </div> 
-                }
-                <nav>
-                    <a href="/"><img src="/img/logo.01.png" /></a>
-                    <ul>
-                        {/* <a href="#how-it-works"><li>How it works</li></a> */}
-                        <li>About</li>
-                        <li>Blog</li>
-                    </ul>
-                </nav>
-                <div className="title-cover-landing">
-                    <div className="title-cover-left"></div>
-                    <div className="title-cover-right">
-                        <div className="title-cover-right-child">
-                            <h1>The fastest way to your morning coffee.</h1>
-                            <form onSubmit={this._handleUsernameSubmit}>
-                                <input
-                                    type="text"
-                                    placeholder="What's your name?"
-                                    name="username"
-                                    ref={(c) => this._usernameInput = c}
-                                    required />
-                                <input
-                                    type="text"
-                                    placeholder="Mobile No.?"
-                                    name="username"
-                                    // ref={(c) => this._usernameInput = c}
-                                    required />
-                                <button>Go!</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                {/* <div className="landing-icon-wrap">
+  render = function () {
+    return (
+      <div className="username-container">
+        {this.state.isLoading && (
+          <div id="banner">
+            <div
+              className="splash-banner"
+              style={{ marginTop: "38%", color: "#fff", fontSize: "50px" }}
+            >
+              <a href="/">
+                <img
+                  className="splash-logo"
+                  style={{ height: "150px", width: "300px" }}
+                  src="/img/splash logo.png"
+                />
+              </a>
+              <h3 style={{ marginTop: ".3em" }}>Covid Situation</h3>
+            </div>
+          </div>
+        )}
+        <nav>
+          <a href="/">
+            <img src="/img/logo.01.png" />
+          </a>
+          <ul>
+            {/* <a href="#how-it-works"><li>How it works</li></a> */}
+            {/* <li>About</li>
+                        <li>Blog</li> */}
+          </ul>
+        </nav>
+        <div className="title-cover-landing">
+          <div className="title-cover-left"></div>
+          <div className="title-cover-right">
+            <div className="title-cover-right-child">
+              <h1>The fastest way to your morning coffee.</h1>
+              <form onSubmit={this._handleUsernameSubmit}>
+                <input
+                  type="text"
+                  placeholder="What's your name?"
+                  name="username"
+                  ref={(c) => (this._usernameInput = c)}
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Mobile No.?"
+                  name="username"
+                  // ref={(c) => this._usernameInput = c}
+                  required
+                />
+                <button>Go!</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        {/* <div className="landing-icon-wrap">
                     <div className="how-it-works"><a name="how-it-works"></a>How it works</div>
                     <div className="landing-icon landing-icon-1">
                         <img src="/img/landing-icon-1.png" />
@@ -83,18 +97,18 @@ class UsernameView extends React.Component {
                         <h2>Ready when you arrive!</h2>
                     </div>
                 </div> */}
-                {/* <div className="landing-icon-button"><button>Get Started!</button></div> */}
-                {/* <div className="company-logo-container">
+        {/* <div className="landing-icon-button"><button>Get Started!</button></div> */}
+        {/* <div className="company-logo-container">
                     <h2>As Used By</h2>
                     <img src="img/starbucks.png" />
                     <img src="img/blue-bottle.png" />
                     <img src="img/philz.png" />
                     <img src="img/peets.png" />
                 </div> */}
-                {/* <Footer /> */}
-            </div>
-        )
-    }
+        {/* <Footer /> */}
+      </div>
+    );
+  };
 }
 
 export default UsernameView;

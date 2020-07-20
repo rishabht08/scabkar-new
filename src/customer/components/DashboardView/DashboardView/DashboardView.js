@@ -109,7 +109,7 @@ class DashboardView extends React.Component{
                             // onClick={this.startButton}
                             className="next-button start-button">
                             <i className="fa fa-coffee" aria-hidden="true"></i>
-                                    Start
+                                    Menu
                             </button></Link>
                 </div>
                 {/* <div className="dash-landing-icon-wrap">

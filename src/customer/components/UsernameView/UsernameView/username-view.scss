@@ -1,19 +1,26 @@
 
 #banner{
     position: absolute;
-   display: block;
+//    display: block;
     top: 0;
     left:0;
     width: 100%;
-    height:100%;
+    height:115vh;
     z-index: 99;
     background: white;
     text-align: center;
+    background-image: url('/img/splash image.png');
+    // object-fit: cover;
 
+.splash-banner{
+    // background-image: url('https://i.ytimg.com/vi/H4AgsMXrUCA/maxresdefault.jpg');
+}
 
 }
 
-
+::-webkit-input-placeholder{
+    color: gray;
+}
 .username-container {
     background: #fff;
 
@@ -23,9 +30,12 @@
         background: #fff;
 
         img {
-            width: 6em;
-            padding-top: 0.75em;
-            padding-left: 1em;
+            // width: 6em;
+            // padding-top: 0.75em;
+            // padding-left: 1em;
+            width: 10em;
+    padding-top: 0.45em;
+    padding-left: .7em;
         }
 
         ul {
@@ -86,7 +96,7 @@
         }
 
         input[type="text"] {
-            width: 10em;
+            width: 11em;
             text-align: center;
             font-size: 1.5em;
             height: 0.8em;
@@ -94,13 +104,14 @@
             border: 1px solid #c2a217;
             margin: .5em auto 0;
             outline: none;
-            padding: .75em;
+            padding: 1em;
             box-shadow: 0px 0px 10px #c2a217;
             margin-left: 0.5em;
 
 
             &:focus {
                 background: #F5FAFF;
+                color: black;
             }
         }
 
@@ -111,7 +122,7 @@
             background: #c5a51f;
             border: none;
             border-radius: 7px;
-            padding: 0.3em 0.1em;
+            padding: -0.7em 0.1em;
             color: #fff;
             border: 2px solid #fff;
             font-size: 1.7em;
@@ -192,6 +203,7 @@
 
 @media only screen and (min-width: 414px) {
     .username-container {
+
         nav {
             ul {
                 li {
@@ -199,6 +211,7 @@
                 }
             }
         }
+
       
     }
     
@@ -206,7 +219,9 @@
 }
 
 @media only screen and (min-width: 685px) {
-
+    .splash-logo{
+        margin-top: -2em;
+    }
     .landing-icon-wrap {
         margin-bottom: 2em;
         text-align: center;
@@ -241,6 +256,17 @@
                 padding-top: 0.4em;
             }
         }
+    }
+    .splash-logo{
+      
+      
+        height: 115px;
+        width: 239px;
+        margin-top: -4em;
+        display: flex;
+        margin-left: 10em;
+
+    
     }
 
     .title-cover-landing {

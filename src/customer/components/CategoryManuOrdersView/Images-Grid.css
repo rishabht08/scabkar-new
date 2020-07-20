@@ -15,9 +15,9 @@
 }
 
 .manu-title {
-  padding: 1em;
+  /* padding: 1em; */
   min-height: 6em;
-  margin-top: 5em;
+  margin-top: 4em;
 }
 
 .grid-container > div {
@@ -76,11 +76,23 @@
     /* margin: 4em auto 2.5em auto; */
     margin: 0em auto 2.5em auto;
   }
+  
 }
-
+.carousel {
+  width: 33%;
+  margin: 0 auto;
+}
 @media only screen and (min-width: 960px) {
   .main-container {
     margin-top: 0em;
     margin-left: 5em;
+  }
+  
+}
+
+@media only screen and (max-width: 420px) {
+  .carousel {
+    width: 100%;
+    /* margin: 0 auto; */
   }
 }
