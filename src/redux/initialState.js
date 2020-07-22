@@ -15,6 +15,7 @@ const initialState = {
     duration: '',
     durationSeconds: undefined,
     items: [],
+    item:[],
     specialInstructions: '',
     notification: {
         add: false,

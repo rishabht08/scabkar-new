@@ -10,8 +10,9 @@ import _ from 'lodash';
 import moment from "moment"
 import axios from "axios"
 import cookie from 'js-cookie';
+import { json } from 'd3';
 
-class OrderSummaryView extends React.Component{
+class OrderSummaryView extends React.Component {
 
     // propTypes: {
     //     items: React.PropTypes.array,
@@ -20,56 +21,56 @@ class OrderSummaryView extends React.Component{
     //     handleOrderSubmit: React.PropTypes.func
     // },
 
-   state ={
-       
-            username: '',
-            userLocation: {
-                lat: '',
-                lng: ''
-            },
-            shops: [],
-            selectedShop: {},
-            selectedShopLocation: {
-                lat: '',
-                lng: ''
-            },
-            distance: '',
-            duration: '',
-            durationSeconds: undefined,
-            items: [],
-            specialInstructions: '',
-            notification: {
-                add: false,
-                delete: false,
-                error: false,
-                form: false,
-                additionalInfo: false,
-                userLocation: false
-            },
-            methodOfTrans: '',
-            methodOfTransShow: true,
-            pickupTime: true,
-            expectedPickupTime: '',
-            favorite: false,
-            paymentInfo: {
-                nameOnCard: '',
-                cardNumber: undefined,
-                expMonth: '',
-                expYear: '',
-                cvv: undefined
-            },
-            previousOrders: [],
-            favoriteOrders: [],
-            menuShow: false,
-        }
-    
+    state = {
 
-    componentWillMount(){
+        username: '',
+        userLocation: {
+            lat: '',
+            lng: ''
+        },
+        shops: [],
+        selectedShop: {},
+        selectedShopLocation: {
+            lat: '',
+            lng: ''
+        },
+        distance: '',
+        duration: '',
+        durationSeconds: undefined,
+        items: [],
+        specialInstructions: '',
+        notification: {
+            add: false,
+            delete: false,
+            error: false,
+            form: false,
+            additionalInfo: false,
+            userLocation: false
+        },
+        methodOfTrans: '',
+        methodOfTransShow: true,
+        pickupTime: true,
+        expectedPickupTime: '',
+        favorite: false,
+        paymentInfo: {
+            nameOnCard: '',
+            cardNumber: undefined,
+            expMonth: '',
+            expYear: '',
+            cvv: undefined
+        },
+        previousOrders: [],
+        favoriteOrders: [],
+        menuShow: false,
+    }
 
-        console.log("fsfsf",cookie.get("items"))
+
+    componentWillMount() {
+
+        console.log("fsfsf", cookie.get("items"))
 
         this.setState({
-            items: this.props.location.state ? this.props.location.state.items : [] 
+            items: this.props.location.state ? this.props.location.state.items : []
         })
 
     }
@@ -77,12 +78,15 @@ class OrderSummaryView extends React.Component{
     handleDeleteItemFromOrder = (index) => {
         var items = this.state.items;
         items.splice(index, 1);
+        let arr = JSON.parse(cookie.get("addedOrder"));
+        arr.splice(index, 1)
+        cookie.set("addedOrder", arr)
         this.setState({
             items: items
         })
     }
 
-    handleOrderSubmit = () =>{
+    handleOrderSubmit = () => {
 
         if (this.state.pickupTime === true) {
             var expectedPickupTime = moment().add(this.state.durationSeconds, 's').format('LT');
@@ -93,11 +97,11 @@ class OrderSummaryView extends React.Component{
         var date = moment().format('l');
         var time = moment().format('LT');
 
-      
+
 
         let arr = []
 
-        this.props.location.state.items.forEach(item=>{
+        this.props.location.state.items.forEach(item => {
             let data = {}
             data.item = item.itemName
             data.quantity = item.quantity
@@ -112,22 +116,23 @@ class OrderSummaryView extends React.Component{
             "isDelivered": false,
             "noOfSeatsRequested": parseInt(cookie.get("seatNumber")),
             "userName": cookie.get("username"),
-            "orders" : arr,
+            "orders": arr,
             "noOfSeatsRequested": parseInt(cookie.get("seatNumber")),
             "orderType": cookie.get("type"),
-            "specialInstructions" : cookie.get("specialInstructions")
+            "specialInstructions": cookie.get("specialInstructions")
 
         }
 
-        axios.post("https://scankar.herokuapp.com/api/v1/customer-order/create-order" , data).then(res=>{
-            console.log("afeter submit" , res)
+        axios.post("https://scankar.herokuapp.com/api/v1/customer-order/create-order", data).then(res => {
+            console.log("afeter submit", res)
+            cookie.set("addedOrder" , null)
             window.location.href = `/${this.props.params.id}/confirmation`
         })
 
         this._handleStateClear();
     }
 
-    _handleStateClear= function () {
+    _handleStateClear = function () {
         this.setState({
             items: [],
             specialInstructions: '',
@@ -144,49 +149,52 @@ class OrderSummaryView extends React.Component{
     }
 
 
-    render = function() {
-        
-   
+    render = function () {
+
+
         return (
             <div>
-            <div className="main-wrap">
-            <div className="order-summary-container">
-                <div className="title-cover">
-                    <h1>Order Summary</h1>
-                    <div className="userProgress">
-                        <div id="fourOfFive">
+                <div className="main-wrap">
+                    <div className="order-summary-container">
+                        <div className="title-cover">
+                            <h1>Order Summary</h1>
+                            <div className="userProgress">
+                                <div id="fourOfFive">
+                                </div>
+                            </div>
                         </div>
+
+                        <div className="os-order-total-container">
+                            <OrderTotal
+                                orderItems={JSON.parse(cookie.get("addedOrder"))}
+                                handleDeleteItemFromOrder={this.handleDeleteItemFromOrder} />
+                        </div>
+
+                        <SpecialInstructionsOS
+                            specialInstructions={this.state.specialInstructions} />
+
+                        {JSON.parse(cookie.get("addedOrder")).length != 0 &&
+
+                            <div className="order-summary-link">
+                                <button
+                                    onClick={this.handleOrderSubmit}
+                                    className="next-button order-summary-button">
+                                    Submit Order
+                            <i className="fa fa-check fa-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        }
+
+                        <Link to={`/${this.props.params.id}/custom-order`}>
+                            <button className="next-button order-summary-edit-button">
+                                Edit my order
+                        <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                            </button>
+                        </Link>
                     </div>
                 </div>
-
-                <div className="os-order-total-container">
-                    <OrderTotal
-                        orderItems={this.state.items}
-                        handleDeleteItemFromOrder={this.handleDeleteItemFromOrder} />
-                </div>
-
-                <SpecialInstructionsOS
-                    specialInstructions={this.state.specialInstructions} />
-
-                <div  className="order-summary-link">
-                    <button
-                        onClick={this.handleOrderSubmit}
-                        className="next-button order-summary-button">
-                            Submit Order
-                            <i className="fa fa-check fa-lg" aria-hidden="true"></i>
-                    </button>
-                </div>
-
-                <Link to={`/${this.props.params.id}/custom-order`}>
-                    <button className="next-button order-summary-edit-button">
-                        Edit my order
-                        <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
-                    </button>
-                </Link>
+                {/* <Footer /> */}
             </div>
-            </div>
-            {/* <Footer /> */}
-        </div>
         )
     }
 };

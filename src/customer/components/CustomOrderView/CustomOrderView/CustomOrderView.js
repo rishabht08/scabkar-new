@@ -11,6 +11,7 @@ import cookie from 'js-cookie';
 import data from "../../../../dummy-data.json";
 import axios from "axios";
 import "./customOrder.css"
+import { connect } from "react-redux";
 
 
 class CustomOrderView extends React.Component {
@@ -80,6 +81,9 @@ class CustomOrderView extends React.Component {
 
         console.log("stufff", cookie.get("category"))
         console.log("menuData", data)
+        if(!cookie.get("addedOrder")){
+            cookie.set("addedOrder" , [])
+        }
         axios.get("https://scankar.herokuapp.com/api/v1/products").then(res => {
             console.log("responsed", res.data.data.products)
 
@@ -127,8 +131,19 @@ class CustomOrderView extends React.Component {
     }
 
     handleAddItemToOrder = (itemDetails) => {
+        console.log("jkjskf" , itemDetails)
+
+        // this.props.dispatch({
+        //     type:"ADD_ITEM",
+        //     payLoad : itemDetails
+        // })
+
+        let arr = JSON.parse(cookie.get("addedOrder"))
+        arr.push(itemDetails)
+        cookie.set("addedOrder" , arr)
+      
         this.setState({
-            items: this.state.items.concat(itemDetails),
+            items: arr
         });
     }
 
@@ -167,6 +182,9 @@ class CustomOrderView extends React.Component {
     handleDeleteItemFromOrder = (index) => {
         var items = this.state.items;
         items.splice(index, 1);
+        let arr = JSON.parse(cookie.get("addedOrder"));
+        arr.splice(index , 1)
+        cookie.set("addedOrder" , arr)
         this.setState({
             items: items
         })
@@ -201,8 +219,8 @@ class CustomOrderView extends React.Component {
 
         var nextButton;
 
-        if (this.state.items.length > 0) {
-            nextButton = <Link to={{ pathname: cookie.get("type") == "Take Home" ? `/${this.props.params.id}/additional-info` : `/${this.props.params.id}/order-summary`, state: { items: this.state.items } }} >
+        if (JSON.parse(cookie.get("addedOrder")).length> 0) {
+            nextButton = <Link to={{ pathname: cookie.get("type") == "Take Home" ? `/${this.props.params.id}/additional-info` : `/${this.props.params.id}/order-summary`, state: { items: JSON.parse(cookie.get("addedOrder")) } }} >
                 <button className="next-button">
                     Next
                                 <i className="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
@@ -247,7 +265,7 @@ class CustomOrderView extends React.Component {
 
                     <div className="order-total-container">
                         <OrderTotal
-                            orderItems={this.state.items}
+                            orderItems={JSON.parse(cookie.get("addedOrder"))}
                             handleDeleteItemFromOrder={this.handleDeleteItemFromOrder}
                             toggleDeleteNotification={this.toggleDeleteNotification} />
                         <SpecialInstructions
@@ -261,4 +279,16 @@ class CustomOrderView extends React.Component {
     }
 };
 
-export default CustomOrderView;
+function mapStateToProps(state , ownProps){
+    console.log("state" , state)
+    return{
+
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+     dispatch
+    };
+  }
+export default connect(mapStateToProps, mapDispatchToProps)(CustomOrderView);

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import './Category-Manu-Orders-View.scss';
 import "./Images-Grid.css";
 import cookie from "js-cookie";
+import {connect} from "react-redux"
 export class CategoryManuOrdersView extends Component {
   selectCategory = (e) => {
     const selection = e.target.getElementsByTagName("H2")[0].innerHTML;
@@ -171,4 +172,16 @@ export class CategoryManuOrdersView extends Component {
   };
 }
 
-export default CategoryManuOrdersView;
+function mapStateToProps(state , ownProps){
+  console.log("state" , state)
+  return{
+
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+   dispatch
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryManuOrdersView);

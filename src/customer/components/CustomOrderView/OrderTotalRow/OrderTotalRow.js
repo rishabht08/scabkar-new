@@ -18,7 +18,7 @@ var OrderTotalRow = React.createClass({
 
     _handleDeleteItem: function() {
         this.props.handleDeleteItemFromOrder(this.props.index);
-        this.props.toggleDeleteNotification();
+        // this.props.toggleDeleteNotification();
     },
 
     render: function() {

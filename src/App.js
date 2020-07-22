@@ -1,4 +1,5 @@
-import { Route, IndexRoute } from 'react-router'
+import { IndexRoute ,Route, Router } from 'react-router'
+
 import React from 'react'
 import App from './customer/components/App/App'
 import DashboardView from './customer/components/DashboardView/DashboardView/DashboardView'
@@ -15,31 +16,32 @@ import CategoryManuOrdersView from './customer/components/CategoryManuOrdersView
 
 
 
-var Routes = <div>
-    <Route path="/:id" component={App}>
-        <IndexRoute component={DashboardView} />
-
-        <Route path="/:id/previous-orders" component={PreviousOrdersView} />
-        <Route path="/:id/favorite-orders" component={FavoriteOrdersView} />
-        <Route path="/:id/custom-order" component={CustomOrderView} />
-        <Route path="/:id/additional-info" component={AdditionalInfoView} />
-        <Route path="/:id/order-summary" component={OrderSummaryView} />
-        <Route path="/:id/confirmation" component={ConfirmationView} />
-        <Route path="/:id/category-menu" component={CategoryManuOrdersView} />
-
-
-    </Route>
+var Routes = <Router>
     
-    {/* <Route path="/admin" component={AppBusiness}>
+        <Route path="/:id" component={App}>
+            <IndexRoute component={DashboardView} />
+
+            <Route path="/:id/previous-orders" component={PreviousOrdersView} />
+            <Route path="/:id/favorite-orders" component={FavoriteOrdersView} />
+            <Route path="/:id/custom-order" component={CustomOrderView} />
+            <Route path="/:id/additional-info" component={AdditionalInfoView} />
+            <Route path="/:id/order-summary" component={OrderSummaryView} />
+            <Route path="/:id/confirmation" component={ConfirmationView} />
+            <Route path="/:id/category-menu" component={CategoryManuOrdersView} />
+
+
+        </Route>
+
+        {/* <Route path="/admin" component={AppBusiness}>
         <IndexRoute component={BusinessAdminView} />
     </Route> */}
 
-    <Route path="showcode/select-shop" component={SelectShopView} />
+        <Route path="showcode/select-shop" component={SelectShopView} />
 
 
 
+  
 
-
-</div>
+</Router>
 
 export default Routes;
