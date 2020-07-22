@@ -82,9 +82,13 @@ class CustomOrderView extends React.Component {
 
         console.log("stufff", cookie.get("category"))
         console.log("menuData", data)
-        if(!cookie.get("addedOrder")){
+        console.log("cookie.data" , cookie.get("addedOrder"))
+        if(!cookie.get("addedOrder") || cookie.get("addedOrder") == "null"){
+            console.log("jhsjhjh")
+         
             cookie.set("addedOrder" , [])
         }
+        console.log("cookie.data" , cookie.get("addedOrder"))
         axios.get("https://scankar.herokuapp.com/api/v1/products").then(res => {
             console.log("responsed", res.data.data.products)
 
