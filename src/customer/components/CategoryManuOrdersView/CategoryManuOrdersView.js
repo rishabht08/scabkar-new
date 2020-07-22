@@ -31,7 +31,7 @@ export class CategoryManuOrdersView extends Component {
               <div className="carousel-item active">
                 <img
                   style={{ height: "100%", width: "100%" }}
-                  src="https://media.socastsrm.com/wordpress/wp-content/blogs.dir/1948/files/2020/03/covid19-banner.png"
+                  src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ce719d4c-aa70-4c06-9e47-12ab4896e9ff/d6oy7kh-9daf57df-b114-4b2f-bd9e-abbb6ed67b4f.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvY2U3MTlkNGMtYWE3MC00YzA2LTllNDctMTJhYjQ4OTZlOWZmXC9kNm95N2toLTlkYWY1N2RmLWIxMTQtNGIyZi1iZDllLWFiYmI2ZWQ2N2I0Zi5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.SPzghuFe8L20K4OzDJmPTJQbufH5aVKpOrzfbMeYp-k"
                   class="d-block w-100"
                   alt="..."
                 />
