@@ -69,6 +69,7 @@
     "react-router": "^3.2.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-scroll-up-button": "^1.6.4",
     "react-scrollbar": "^0.5.6",
     "react-simplemde-editor": "^4.1.0",
     "react-slick": "^0.25.2",

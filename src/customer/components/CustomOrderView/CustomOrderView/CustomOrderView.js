@@ -12,6 +12,7 @@ import data from "../../../../dummy-data.json";
 import axios from "axios";
 import "./customOrder.css"
 import { connect } from "react-redux";
+import {TinyButton as ScrollUpButton} from "react-scroll-up-button";
 
 
 class CustomOrderView extends React.Component {
@@ -274,6 +275,10 @@ class CustomOrderView extends React.Component {
                     </div>
                 </div>
                 {/* <Footer /> */}
+                <ScrollUpButton
+          ShowAtPosition={100}
+          AnimationDuration={1500}
+        />
             </div>
         )
     }

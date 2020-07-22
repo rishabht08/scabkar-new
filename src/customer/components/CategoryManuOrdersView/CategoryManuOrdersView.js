@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import "./Images-Grid.css";
 import cookie from "js-cookie";
 import {connect} from "react-redux"
+import {TinyButton as ScrollUpButton} from "react-scroll-up-button";
+
 export class CategoryManuOrdersView extends Component {
   selectCategory = (e) => {
     const selection = e.target.getElementsByTagName("H2")[0].innerHTML;
@@ -165,6 +167,12 @@ export class CategoryManuOrdersView extends Component {
             >
               <h2>VEGETARIAN</h2>
             </div>
+            <div>
+        <ScrollUpButton
+          ShowAtPosition={100}
+          AnimationDuration={1500}
+        />
+      </div>
           </div>
         </div>
       </div>
