@@ -156,7 +156,7 @@ export class CategoryManuOrdersView extends Component {
               className="location-image bg9"
               onClick={(e) => this.selectCategory(e)}
             >
-              <h2>ITALIAN FOOD</h2>
+              <h2>ITALIAN</h2>
             </div>
             <div
               className="location-image bg10"

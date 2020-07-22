@@ -120,6 +120,7 @@ class CustomOrderView extends React.Component {
         setTimeout(clearNotification, 3000);
     }
     handleSpecialInstructions = (event) => {
+        cookie.set("specialInstrctions" , event.target.value)
         this.setState({
             specialInstructions: event.target.value
         })
