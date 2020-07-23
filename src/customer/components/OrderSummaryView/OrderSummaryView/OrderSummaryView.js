@@ -119,13 +119,14 @@ class OrderSummaryView extends React.Component {
             "orders": arr,
             "noOfSeatsRequested": parseInt(cookie.get("seatNumber")),
             "orderType": cookie.get("type"),
-            "specialInstructions": cookie.get("specialInstructions")
+            "instruction": cookie.get("specialInstrctions")
 
         }
 
         axios.post("https://scankar.herokuapp.com/api/v1/customer-order/create-order", data).then(res => {
             console.log("afeter submit", res)
             cookie.set("addedOrder" , null)
+            cookie.remove("specialInstrctions")
             window.location.href = `/${this.props.params.id}/confirmation`
         })
 
