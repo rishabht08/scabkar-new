@@ -81,12 +81,12 @@ class App extends React.Component{
         cookie.set("type", type)
         let seatNumber = 25;
 
-        if(id.split("").slice(id.length-3 , id.length-1)[0] == "T"){
+        if(id.split("").slice(id.length-3 , id.length)[0] == "T"){
             seatNumber = parseInt(id.split("").slice(id.length-2 , id.length).join(""))
 
         }
 
-        if(id.split("").slice(id.length-2 , id.length-1)[0] == "T"){
+        if(id.split("").slice(id.length-2 , id.length)[0] == "T"){
             seatNumber = parseInt(id.split("").slice(id.length-1 , id.length)[0]) 
 
         }
