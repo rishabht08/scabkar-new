@@ -117,14 +117,13 @@ class OrderSummaryView extends React.Component {
             "noOfSeatsRequested": parseInt(cookie.get("seatNumber")),
             "userName": cookie.get("username"),
             "orders": arr,
-            "noOfSeatsRequested": parseInt(cookie.get("seatNumber")),
             "orderType": cookie.get("type"),
             "instruction": cookie.get("specialInstrctions"),
             "userId":cookie.get("userid")
 
         }
 
-        axios.post("https://scankar.herokuapp.com/api/v1/customer-order/create-order", data).then(res => {
+        axios.post("https://scankarapi.herokuapp.com/api/v1/customer-order/create-order", data).then(res => {
             console.log("afeter submit", res)
             cookie.set("addedOrder" , null)
             cookie.remove("specialInstrctions")
