@@ -80,7 +80,7 @@ class App extends React.Component{
         let type = idArr.slice(idArr.length -4  , idArr.length).join("") == "take" ? "Take Home" : "Dine In"
         cookie.set("type", type)
         let seatNumber = 25;
-        let userId = "";
+        let userId = id.split("").slice(0 , id.length-4).join("") ;
 
         if(id.split("").slice(id.length-3 , id.length)[0] == "T"){
             seatNumber = parseInt(id.split("").slice(id.length-2 , id.length).join(""))
