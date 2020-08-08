@@ -89,10 +89,10 @@ class CustomOrderView extends React.Component {
             cookie.set("addedOrder" , [])
         }
         console.log("cookie.data" , cookie.get("addedOrder"))
-        axios.get("https://scankar.herokuapp.com/api/v1/products").then(res => {
-            console.log("responsed", res.data.data.products)
+        axios.get(`https://scankarapi.herokuapp.com/api/v1/users/${cookie.get("userid")}`).then(res => {
+            console.log("responsed", res.data.data.user.menu)
 
-            let arr = res.data.data.products.filter(item=>{
+            let arr = res.data.data.user.menu.filter(item=>{
                 return item.category == cookie.get("category") && item.status == "Available"
             })
         

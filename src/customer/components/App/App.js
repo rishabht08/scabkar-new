@@ -80,19 +80,23 @@ class App extends React.Component{
         let type = idArr.slice(idArr.length -4  , idArr.length).join("") == "take" ? "Take Home" : "Dine In"
         cookie.set("type", type)
         let seatNumber = 25;
+        let userId = "";
 
         if(id.split("").slice(id.length-3 , id.length)[0] == "T"){
             seatNumber = parseInt(id.split("").slice(id.length-2 , id.length).join(""))
+            userId = id.split("").slice(0 , id.length-3).join("")
 
         }
 
         if(id.split("").slice(id.length-2 , id.length)[0] == "T"){
             seatNumber = parseInt(id.split("").slice(id.length-1 , id.length)[0]) 
+            userId = id.split("").slice(0 , id.length-2).join("")
 
         }
 
         // let seatNumber = id.split("").slice(id.length-2 , id.length-1)[0] == "T" ? parseInt(id.split("").slice(id.length-1 , id.length)[0]) : 25; 
         cookie.set("seatNumber" , seatNumber)
+        cookie.set("userid" , userId)
        
         let shop = data.filter(item=>{
             return item.id == id
