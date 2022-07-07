@@ -29,7 +29,7 @@
     "knob": "^1.1.0",
     "leaflet": "^1.6.0",
     "lodash": "^4.17.15",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "node-sass": "^4.14.1",
     "qrcode.react": "^0.5.2",
     "react": "^0.14.9",
